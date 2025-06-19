@@ -33,8 +33,8 @@ def test_check_created_csv_tag(input_video_name, input_video_link, gt_csv_file_n
     # run_main_anomaly_loop(input_video_name) # no need to run this if test_object_detection_csv_creation was run
 
     #------------------------------un comment this part if you want to run and test---------------------
-    # TaggingSystem(csv_input_file_name, 'background.png', 'routine_map.pkl')
-    # cv2.destroyAllWindows()
+    TaggingSystem(csv_input_file_name, 'background.png', 'routine_map.pkl')
+    cv2.destroyAllWindows()
     #------------------------------un comment this part if you want to run and test---------------------
 
     dataframe_gt = pandas.read_csv(gt_csv_file_name)
