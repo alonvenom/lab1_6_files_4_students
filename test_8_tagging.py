@@ -7,6 +7,8 @@ import pytest
 import os
 import params_links
 import pandas as pd
+import urllib.request
+
 
 @pytest.mark.order(8)
 @pytest.mark.parametrize("input_video_name, input_video_link, gt_csv_file_name, gt_csv_file_name_link, csv_output_file_name,"
@@ -25,10 +27,12 @@ def test_check_created_csv_tag(input_video_name, input_video_link, gt_csv_file_n
     input_video_name = os.path.join(current_directory, input_video_name)
 
   
+    
     if not os.path.exists(input_video_name):
-        gdown.download(input_video_link, input_video_name)
+        urllib.request.urlretrieve(input_video_link, input_video_name)
+
     if not os.path.exists(gt_csv_file_name):
-        gdown.download(gt_csv_file_name_link, gt_csv_file_name)
+        urllib.request.urlretrieve(gt_csv_file_name_link, gt_csv_file_name)
 
 
     run_main_anomaly_loop(input_video_name)
