@@ -7,6 +7,8 @@ from main import run_main_anomaly_loop, run_main_routine_loop
 import pytest
 import os
 import params_links
+import urllib.request
+
 
 @pytest.mark.order(2)
 @pytest.mark.parametrize("input_video_name, input_video_link, csv_file_name, size",
@@ -19,7 +21,7 @@ def test_check_created_csv_file(input_video_name, input_video_link, csv_file_nam
     current_directory = os.getcwd()
     input_video_name = os.path.join(current_directory, input_video_name)
     if not os.path.exists(input_video_name):
-        gdown.download(input_video_link, input_video_name)
+        urllib.request.urlretrieve(input_video_link, input_video_name)
     anomaly_video_file = os.path.join(current_directory, 'anomaly_detection.mp4')
     run_main_routine_loop(input_video_name)
     run_main_anomaly_loop(input_video_name)
