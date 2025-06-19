@@ -167,8 +167,8 @@ def anomaly_detection(tracked_objects, routine_map, result, height=None, width=N
     out.write(output_frame)
 
     # show results
-    cv2.imshow('Frame', result.plot())
-    cv2.imshow('anomaly frame', output_frame)
+    #cv2.imshow('Frame', result.plot())
+    #cv2.imshow('anomaly frame', output_frame)
 
     return tracked_objects
 
